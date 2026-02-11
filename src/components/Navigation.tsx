@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useRef, useState } from 'react';
+import logo from '../assets/logo.svg';
 
 interface NavigationProps {
   onNavigate: (page: 'home' | 'work' | 'project' | 'contact' | 'resume') => void;
@@ -51,7 +52,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
             onClick={() => onNavigate('home')}
             className="flex items-center gap-3 text-xl font-bold text-[#C63B37] hover:opacity-80 transition-opacity"
           >
-            <img src="/src/assets/logo.svg" alt="Viktoriia Monakova logo" className="h-14 w-14" />
+            <img src={logo} alt="Viktoriia Monakova logo" className="h-14 w-14" />
             <span>Viktoriia Monakova</span>
           </button>
 

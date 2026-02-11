@@ -9,8 +9,15 @@ interface WorkPageProps {
 export function WorkPage({ onProjectClick }: WorkPageProps) {
   return (
     <div className="min-h-screen">
-      <section className="py-12 md:py-20 mt-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section
+        className="py-12 md:py-20 mt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      >
+        <div className="hero-dots" aria-hidden="true">
+          <span className="hero-dots-layer layer-one">.</span>
+          <span className="hero-dots-layer layer-two">.</span>
+          <span className="hero-dots-layer layer-three">.</span>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#57352A] mb-4">Work</h1>
             <p className="text-lg text-[#57352A]/70 max-w-2xl mx-auto">
