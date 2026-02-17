@@ -9,36 +9,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'healthtrack',
-    title: 'HealthTrack Mobile App',
-    category: 'UX/UI Case Study',
-    description: 'A comprehensive health and fitness tracking app designed to help users set goals, track progress, and build lasting healthy habits. Features personalized insights, community challenges, and seamless wearable integration. Full case study available.',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
-    tags: ['Mobile', 'UX Research', 'Design System']
+    id: 'scaffold',
+    title: 'Founding the Future: How a New App Is Supporting Trades Apprentices in BC',
+    category: 'Full-Stack Development & UX Research',
+    description: 'A new mobile app and web supplement designed to support trades apprentices in BC by streamlining the grant application process and providing a comprehensive resource for their education and career development. Full case study available.',
+    imageUrl: './src/assets/scaffold2.png',
+    tags: ['Mobile App', 'Web Development', 'UX Research']
   },
   {
     id: '1',
-    title: 'E-Commerce Platform Redesign',
+    title: 'E-Commerce Platform ',
     category: 'UX/UI Design',
-    description: 'A complete redesign of a fashion e-commerce platform focusing on mobile-first experience and conversion optimization. We reduced cart abandonment by 32% and increased mobile conversions by 45%.',
-    imageUrl: 'https://images.unsplash.com/photo-1622131815183-e7f8bbac9cd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBsYXB0b3B8ZW58MXx8fHwxNzY4ODM5NTA1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    description: 'A complete design of a fashion e-commerce platform focusing on mobile-first experience and conversion optimization. We reduced cart abandonment by 32% and increased mobile conversions by 45%.',
+    imageUrl: './src/assets/Container.png',
     tags: ['Figma', 'React', 'User Research']
   },
   {
     id: '2',
-    title: 'Task Management Dashboard',
-    category: 'Product Design',
-    description: 'A comprehensive task management system designed for remote teams with real-time collaboration features. Built to enhance productivity and streamline workflow management.',
-    imageUrl: 'https://images.unsplash.com/photo-1695634184046-93d24e779ea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3Njg4MDgzMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['UI/UX', 'Prototyping', 'Web App']
+    title: 'What if You Could Travel in Movie: Travel Magazine',
+    category: 'Print Design',
+    description: 'A cinematic travel magazine concept that blends editorial storytelling with immersive visual layouts inspired by film stills and narrative pacing.',
+    imageUrl: './src/assets/Container2.png',
+    tags: ['Print', 'Editorial', 'Layout']
   },
   {
     id: '3',
-    title: 'Financial Analytics Tool',
+    title: 'TrapShool Website',
     category: 'Web Development',
     description: 'An interactive analytics dashboard for personal finance tracking with data visualization and insights. Helps users make informed financial decisions with real-time data.',
-    imageUrl: 'https://images.unsplash.com/photo-1637937459053-c788742455be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHNjcmVlbnxlbnwxfHx8fDE3Njg4MzkxOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['React', 'TypeScript', 'D3.js']
+    imageUrl: './src/assets/Container1.png',
+    tags: ['React', 'TypeScript', 'Vercel']
   },
   {
     id: '4',

@@ -21,7 +21,7 @@ export function WorkPage({ onProjectClick }: WorkPageProps) {
           <div className="text-center mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#57352A] mb-4">Work</h1>
             <p className="text-lg text-[#57352A]/70 max-w-2xl mx-auto">
-              A card view of selected projects covering UX/UI, product design, and development.
+              A selection of projects covering full-stack development, UX research, and product design showcasing my skills and experience in the field.
             </p>
           </div>
 

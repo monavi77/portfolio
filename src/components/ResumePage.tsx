@@ -14,10 +14,12 @@ export function ResumePage({ onBack }: ResumePageProps) {
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-[#57352A] mb-4">Viktoriia Monakova</h1>
-              <p className="text-xl text-[#C63B37] mb-4">Digital Designer</p>
+              <p className="text-xl text-[#C63B37] mb-4">Digital Designer & Developer</p>
               <p className="text-[#57352A]/70 leading-relaxed max-w-2xl">
-                Creative and detail-oriented digital designer with a background in hospitality, passionate about
-                crafting user-centered visuals, branding materials, and engaging digital content.
+              Creative and detail-oriented designer and developer with a strong
+               focus on user-centered design, branding, and digital experiences.
+               I combine visual creativity with technical problem-solving to deliver
+               results-driven solutions. Highly adaptable and committed to exceeding expectations in fast-paced environments.
               </p>
             </div>
             <a
@@ -52,8 +54,120 @@ export function ResumePage({ onBack }: ResumePageProps) {
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content - Left */}
-          <div className="lg:col-span-2 space-y-8">
+          {/* Sidebar - Left */}
+          <div className="space-y-8 lg:order-1">
+            {/* Skills */}
+            <section className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-[#57352A] mb-6">Skills</h2>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Design & Development</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">UI/UX Design</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Wireframing</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Prototyping</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Web Design</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Web Development</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">React</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Next.js</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">MySQL</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">WordPress</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Tools & Software</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Adobe Creative Suite</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Figma</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Canva</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">VS Code</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">GitHub</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">HTML/CSS</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">JavaScript</span>
+                   
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Communication</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Marketing Content</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Technical Writing</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Professional Communication</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">SEO</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Customer Service</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Upselling</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Problem-Solving</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Team Collaboration</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Project Management</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Agile Methodologies</span>
+                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Collaborative Workflows</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Languages */}
+            <section className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-[#57352A] mb-6">Languages</h2>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">English</span>
+                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Ukrainian</span>
+                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Polish</span>
+                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Russian</span>
+              </div>
+            </section>
+
+            {/* Certifications */}
+            <section className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-[#57352A] mb-6">Certifications</h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={16} />
+                  <div>
+                    <p className="font-medium text-[#57352A] text-sm">Marketing Certification</p>
+                    <p className="text-xs text-[#57352A]/60">LinkedIn Learning</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={16} />
+                  <div>
+                    <p className="font-medium text-[#57352A] text-sm">Serve It Right</p>
+                    <p className="text-xs text-[#57352A]/60">Certification</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Achievements */}
+            <section className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-[#57352A] mb-6">Achievements</h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={16} />
+                  <div>
+                    <p className="font-bold text-[#57352A]">1st Place – Trap Shooting Championship</p>
+                    <p className="text-sm text-[#57352A]/70">Kyiv, Ukraine • 2024</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Main Content - Right */}
+          <div className="lg:col-span-2 space-y-8 lg:order-2">
             {/* Project Experience */}
             <section className="bg-white rounded-2xl p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
@@ -222,23 +336,6 @@ export function ResumePage({ onBack }: ResumePageProps) {
               </div>
             </section>
 
-            {/* Awards & Recognition */}
-            <section className="bg-white rounded-2xl p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <Award className="text-[#C63B37]" size={24} />
-                <h2 className="text-2xl font-bold text-[#57352A]">Achievements</h2>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={18} />
-                  <div>
-                    <p className="font-bold text-[#57352A]">1st Place – Trap Shooting Championship</p>
-                    <p className="text-sm text-[#57352A]/70">Kyiv, Ukraine • 2024</p>
-                  </div>
-                </div>
-              </div>
-            </section>
 
             {/* Volunteering */}
             <section className="bg-white rounded-2xl p-8 shadow-sm">
@@ -268,104 +365,6 @@ export function ResumePage({ onBack }: ResumePageProps) {
                     <span>Acted as a translator and guide to ensure a smooth athlete experience</span>
                   </li>
                 </ul>
-              </div>
-            </section>
-          </div>
-
-          {/* Sidebar - Right */}
-          <div className="space-y-8">
-            {/* Skills */}
-            <section className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-[#57352A] mb-6">Skills</h2>
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Design & Development</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">UI/UX Design</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Wireframing</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Prototyping</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Web Design</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Web Development</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">React</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Next.js</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">MySQL</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">WordPress</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Tools & Software</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Adobe Creative Suite</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Figma</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Canva</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">VS Code</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">GitHub</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">HTML/CSS</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">JavaScript</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">C++</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Communication</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Marketing Content</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Technical Writing</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Professional Communication</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">SEO</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Customer Service</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Upselling</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Problem-Solving</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Team Collaboration</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-bold text-[#C63B37] mb-3 uppercase tracking-wider">Project Management</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Agile Methodologies</span>
-                    <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Collaborative Workflows</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Languages */}
-            <section className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-[#57352A] mb-6">Languages</h2>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">English</span>
-                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Ukrainian</span>
-                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Polish</span>
-                <span className="px-3 py-1 bg-[#F2EAE2] text-[#57352A] text-sm rounded-full">Russian</span>
-              </div>
-            </section>
-
-            {/* Certifications */}
-            <section className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-[#57352A] mb-6">Certifications</h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={16} />
-                  <div>
-                    <p className="font-medium text-[#57352A] text-sm">Marketing Certification</p>
-                    <p className="text-xs text-[#57352A]/60">LinkedIn Learning</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Star className="text-[#C63B37] flex-shrink-0 mt-1" size={16} />
-                  <div>
-                    <p className="font-medium text-[#57352A] text-sm">Serve It Right</p>
-                    <p className="text-xs text-[#57352A]/60">Certification</p>
-                  </div>
-                </div>
               </div>
             </section>
           </div>

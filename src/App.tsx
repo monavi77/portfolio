@@ -4,11 +4,12 @@ import { LandingPage } from './components/LandingPage';
 import { WorkPage } from './components/WorkPage';
 import { ProjectPage } from './components/ProjectPage';
 import { CaseStudyPage } from './components/CaseStudyPage';
+import { MagazinePage } from './components/MagazinePage';
 import { ContactPage } from './components/ContactPage';
 import { ResumePage } from './components/ResumePage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'work' | 'project' | 'casestudy' | 'contact' | 'resume'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'work' | 'magazine' | 'project' | 'casestudy' | 'contact' | 'resume'>('home');
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
   const handleProjectClick = (projectId: string) => {
@@ -16,13 +17,15 @@ export default function App() {
     // For demo purposes, show case study for specific project, otherwise show regular project page
     if (projectId === 'healthtrack') {
       setCurrentPage('casestudy');
+    } else if (projectId === '2') {
+      setCurrentPage('magazine');
     } else {
       setCurrentPage('project');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigate = (page: 'home' | 'work' | 'project' | 'casestudy' | 'contact' | 'resume') => {
+  const handleNavigate = (page: 'home' | 'work' | 'magazine' | 'project' | 'casestudy' | 'contact' | 'resume') => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -32,9 +35,11 @@ export default function App() {
       <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
       
       {currentPage === 'home' ? (
-        <LandingPage onProjectClick={handleProjectClick} />
+        <LandingPage onProjectClick={handleProjectClick} onContactNavigate={() => handleNavigate('contact')} />
       ) : currentPage === 'work' ? (
         <WorkPage onProjectClick={handleProjectClick} />
+      ) : currentPage === 'magazine' ? (
+        <MagazinePage onBack={() => handleNavigate('home')} />
       ) : currentPage === 'contact' ? (
         <ContactPage onBack={() => handleNavigate('home')} />
       ) : currentPage === 'resume' ? (

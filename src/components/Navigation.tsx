@@ -3,8 +3,8 @@ import { useRef, useState } from 'react';
 import logo from '../assets/logo.svg';
 
 interface NavigationProps {
-  onNavigate: (page: 'home' | 'work' | 'project' | 'contact' | 'resume') => void;
-  currentPage: 'home' | 'work' | 'project' | 'contact' | 'resume' | 'casestudy';
+  onNavigate: (page: 'home' | 'work' | 'magazine' | 'project' | 'contact' | 'resume') => void;
+  currentPage: 'home' | 'work' | 'magazine' | 'project' | 'contact' | 'resume' | 'casestudy';
 }
 
 export function Navigation({ onNavigate, currentPage }: NavigationProps) {
@@ -107,7 +107,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-[#57352A]/10 bg-[#F2EAE2]/80 backdrop-blur-md rounded-b-[50px]">
+          <div className="md:hidden py-4 border-t border-[#57352A]/10 rounded-b-[50px]">
             <div className="flex flex-col gap-4">
               <button 
                 onClick={() => {

@@ -2,7 +2,11 @@ import { ArrowDown } from 'lucide-react';
 import posterLight from '../assets/buil-poster-lightning.png';
 import posterDark from '../assets/buil-poster-not-lightning.png';
 
-export function Hero() {
+interface HeroProps {
+  onContactNavigate: () => void;
+}
+
+export function Hero({ onContactNavigate }: HeroProps) {
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 relative hero-stage">
       <div className="hero-poster" aria-hidden="true">
@@ -35,12 +39,13 @@ export function Hero() {
             >
               View My Work
             </a>
-            <a 
-              href="#contact" 
+            <button
+              type="button"
+              onClick={onContactNavigate}
               className="glass-button glass-button-white w-full sm:w-auto px-8 py-4 font-medium"
             >
               Get in Touch
-            </a>
+            </button>
           </div>
           <a href="#about-me" className="hero-arrow animate-bounce">
             <ArrowDown className="text-white" size={32} />

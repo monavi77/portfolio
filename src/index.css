@@ -2346,6 +2346,78 @@ body {
   padding-top: 8px;
 }
 
+/* Magazine preview */
+.magazine-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.magazine-book {
+  position: relative;
+  width: min(86vw, 900px);
+  aspect-ratio: 16 / 10;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.magazine-page {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(87, 53, 42, 0.25);
+  transform-style: preserve-3d;
+}
+
+.magazine-page--left {
+  left: 0;
+  transform: rotateY(5deg);
+}
+
+.magazine-page--right {
+  right: 0;
+  transform: rotateY(-5deg);
+}
+
+.magazine-book--single .magazine-page--left {
+  width: min(43vw, 450px);
+  aspect-ratio: 8 / 10;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 18px;
+}
+
+.magazine-book--single .magazine-spine {
+  opacity: 0;
+}
+
+.magazine-spine {
+  position: absolute;
+  left: 50%;
+  top: 4%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 92%;
+  background: rgba(87, 53, 42, 0.2);
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.magazine-book--flipping .magazine-page--right {
+  animation: page-flip 0.7s ease-in-out forwards;
+}
+
+@keyframes page-flip {
+  0% { transform: rotateY(-5deg); }
+  50% { transform: rotateY(-90deg); }
+  100% { transform: rotateY(-5deg); }
+}
+
 @keyframes hero-rise {
   from {
     transform: translateY(35vh);
@@ -2425,6 +2497,26 @@ body {
 }
 
 .about-mask.about-mask--active .about-mask__overlay {
+  opacity: 1;
+}
+
+.about-cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  background-image: var(--cursor-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(calc(var(--cursor-x, -100px) - 14px), calc(var(--cursor-y, -100px) - 14px));
+  transition: opacity 120ms ease;
+}
+
+.about-cursor.about-cursor--active {
   opacity: 1;
 }
 
