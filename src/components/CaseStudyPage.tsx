@@ -8,6 +8,13 @@ interface CaseStudyPageProps {
 }
 
 export function CaseStudyPage({ onBack }: CaseStudyPageProps) {
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    onBack();
+  };
   const [activeSection, setActiveSection] = useState('overview');
 
   const sections = [
@@ -57,14 +64,14 @@ export function CaseStudyPage({ onBack }: CaseStudyPageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Back Button */}
-      <div className="sticky top-20 z-40 bg-[#F2EAE2]/95 backdrop-blur-sm border-b border-[#57352A]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      {/* Compact Back Button */}
+      <div className="fixed top-[140px] left-0 right-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-[#57352A] hover:text-[#C63B37] transition-colors"
+            onClick={handleBack}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/85 backdrop-blur-md border border-[#57352A]/15 shadow-sm text-[#57352A] hover:text-[#C63B37] transition-colors text-sm"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={16} />
             <span>Back to Projects</span>
           </button>
         </div>

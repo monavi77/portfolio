@@ -3,8 +3,8 @@ import { useRef, useState } from 'react';
 import logo from '../assets/logo.svg';
 
 interface NavigationProps {
-  onNavigate: (page: 'home' | 'work' | 'magazine' | 'project' | 'contact' | 'resume') => void;
-  currentPage: 'home' | 'work' | 'magazine' | 'project' | 'contact' | 'resume' | 'casestudy';
+  onNavigate: (page: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'contact' | 'resume') => void;
+  currentPage: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'contact' | 'resume' | 'casestudy';
 }
 
 export function Navigation({ onNavigate, currentPage }: NavigationProps) {
@@ -79,6 +79,16 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
               Work
             </button>
             <button 
+              onClick={() => onNavigate('about')}
+              className={`transition-colors ${
+                currentPage === 'about' 
+                  ? 'text-[#C63B37]' 
+                  : 'text-[#57352A] hover:text-[#C63B37]'
+              }`}
+            >
+              About
+            </button>
+            <button 
               onClick={() => onNavigate('contact')}
               className={`transition-colors ${
                 currentPage === 'contact' 
@@ -134,6 +144,19 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
                 }`}
               >
                 Work
+              </button>
+              <button 
+                onClick={() => {
+                  onNavigate('about');
+                  setIsMenuOpen(false);
+                }}
+                className={`text-left transition-colors ${
+                  currentPage === 'about' 
+                    ? 'text-[#C63B37]' 
+                    : 'text-[#57352A] hover:text-[#C63B37]'
+                }`}
+              >
+                About
               </button>
               <button 
                 onClick={() => {
