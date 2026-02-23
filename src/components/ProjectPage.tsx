@@ -1,34 +1,9 @@
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
 import { Footer } from './Footer';
 
-interface ProjectPageProps {
-  onBack: () => void;
-}
-
-export function ProjectPage({ onBack }: ProjectPageProps) {
-  const handleBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-      return;
-    }
-    onBack();
-  };
-
+export function ProjectPage() {
   return (
     <div className="min-h-screen">
-      {/* Compact Back Button */}
-      <div className="fixed top-[140px] left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <button
-            onClick={handleBack}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/85 backdrop-blur-md border border-[#57352A]/15 shadow-sm text-[#57352A] hover:text-[#C63B37] transition-colors text-sm"
-          >
-            <ArrowLeft size={16} />
-            <span>Back to Projects</span>
-          </button>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">

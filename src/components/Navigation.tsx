@@ -1,13 +1,15 @@
-import { Menu, X } from 'lucide-react';
+import { ArrowLeft, Menu, X } from 'lucide-react';
 import { useRef, useState } from 'react';
 import logo from '../assets/logo.svg';
 
 interface NavigationProps {
   onNavigate: (page: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'contact' | 'resume') => void;
   currentPage: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'contact' | 'resume' | 'casestudy';
+  showBack?: boolean;
+  onBack?: () => void;
 }
 
-export function Navigation({ onNavigate, currentPage }: NavigationProps) {
+export function Navigation({ onNavigate, currentPage, showBack = false, onBack }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
 
@@ -40,11 +42,21 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50">
+      <div className="max-w-7xl mx-auto flex items-center gap-4">
+        {showBack && (
+          <button
+            onClick={onBack}
+            className="glass-tilt nav-back-button h-16 w-16 flex items-center justify-center rounded-full text-[#C63B37] hover:text-[#a32e2b] transition-colors"
+            aria-label="Back to projects"
+          >
+            <ArrowLeft size={24} />
+          </button>
+        )}
       <div
         ref={navRef}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
-        className="glass-tilt max-w-7xl mx-auto rounded-[50px] shadow-lg px-4 sm:px-6 lg:px-8"
+        className={`glass-tilt rounded-[50px] shadow-lg px-4 sm:px-6 lg:px-8 ${showBack ? 'max-w-6xl' : 'max-w-7xl'} w-full`}
       >
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -183,6 +195,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
             </div>
           </div>
         )}
+      </div>
       </div>
     </nav>
   );

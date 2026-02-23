@@ -1,20 +1,9 @@
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, Monitor, Target, CheckCircle, TrendingUp, Lightbulb } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Users, Monitor, Target, CheckCircle, TrendingUp, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Footer } from './Footer';
 import { useState, useEffect } from 'react';
 
-interface CaseStudyPageProps {
-  onBack: () => void;
-}
-
-export function CaseStudyPage({ onBack }: CaseStudyPageProps) {
-  const handleBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-      return;
-    }
-    onBack();
-  };
+export function CaseStudyPage() {
   const [activeSection, setActiveSection] = useState('overview');
 
   const sections = [
@@ -64,19 +53,6 @@ export function CaseStudyPage({ onBack }: CaseStudyPageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Compact Back Button */}
-      <div className="fixed top-[140px] left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <button
-            onClick={handleBack}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/85 backdrop-blur-md border border-[#57352A]/15 shadow-sm text-[#57352A] hover:text-[#C63B37] transition-colors text-sm"
-          >
-            <ArrowLeft size={16} />
-            <span>Back to Projects</span>
-          </button>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="flex gap-12">
           {/* Sidebar Navigation - Hidden on mobile, visible on large screens */}

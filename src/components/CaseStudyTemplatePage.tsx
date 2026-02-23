@@ -1,34 +1,17 @@
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
 import { Footer } from './Footer';
 import { projects } from '../data/projects';
 
 interface CaseStudyTemplatePageProps {
   projectId: string | null;
-  onBack: () => void;
 }
 
-export function CaseStudyTemplatePage({ projectId, onBack }: CaseStudyTemplatePageProps) {
+export function CaseStudyTemplatePage({ projectId }: CaseStudyTemplatePageProps) {
   const project = projects.find((item) => item.id === projectId) || projects[0];
-  const handleBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-      return;
-    }
-    onBack();
-  };
 
   return (
     <div className="min-h-screen">
-     <div className="py-12 md:py-20 mt-12 px-4 sm:px-6 lg:px-8 relative">
-        <div className="sticky top-28 z-40 mb-6">
-          <button
-            onClick={handleBack}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/85 backdrop-blur-md border border-[#57352A]/15 shadow-sm text-[#57352A] hover:text-[#C63B37] transition-colors text-sm"
-          >
-            <ArrowLeft size={16} />
-            <span>Back to Projects</span>
-          </button>
-        </div>
+      <div className="py-12 md:py-20 mt-12 px-4 sm:px-6 lg:px-8 relative">
 
 
         {/* Hero Section */}

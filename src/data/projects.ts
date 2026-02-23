@@ -7,13 +7,19 @@ export interface Project {
   tags: string[];
 }
 
+import scaffoldImg from '../assets/scaffold2.png';
+import ecommerceImg from '../assets/Container.png';
+import magazineImg from '../assets/Container2.png';
+import trapshoolImg from '../assets/Container1.png';
+import templateImg from '../assets/logo-me.png';
+
 export const projects: Project[] = [
   {
     id: 'scaffold',
     title: 'Founding the Future: How a New App Is Supporting Trades Apprentices in BC',
     category: 'Full-Stack Development & UX Research',
     description: 'A new mobile app and web supplement designed to support trades apprentices in BC by streamlining the grant application process and providing a comprehensive resource for their education and career development. Full case study available.',
-    imageUrl: '../src/assets/scaffold2.png',
+    imageUrl: scaffoldImg,
     tags: ['Mobile App', 'Web Development', 'UX Research']
   },
   {
@@ -21,7 +27,7 @@ export const projects: Project[] = [
     title: 'E-Commerce Platform ',
     category: 'UX/UI Design',
     description: 'A complete design of a fashion e-commerce platform focusing on mobile-first experience and conversion optimization. We reduced cart abandonment by 32% and increased mobile conversions by 45%.',
-    imageUrl: '../src/assets/Container.png',
+    imageUrl: ecommerceImg,
     tags: ['Figma', 'React', 'User Research']
   },
   {
@@ -29,7 +35,7 @@ export const projects: Project[] = [
     title: 'What if You Could Travel in Movie: Travel Magazine',
     category: 'Print Design',
     description: 'A cinematic travel magazine concept that blends editorial storytelling with immersive visual layouts inspired by film stills and narrative pacing.',
-    imageUrl: '../src/assets/Container2.png',
+    imageUrl: magazineImg,
     tags: ['Print', 'Editorial', 'Layout']
   },
   {
@@ -37,7 +43,7 @@ export const projects: Project[] = [
     title: 'TrapShool Website',
     category: 'Web Development',
     description: 'An interactive analytics dashboard for personal finance tracking with data visualization and insights. Helps users make informed financial decisions with real-time data.',
-    imageUrl: '../src/assets/Container1.png',
+    imageUrl: trapshoolImg,
     tags: ['React', 'TypeScript', 'Vercel']
   },
   {
@@ -45,7 +51,7 @@ export const projects: Project[] = [
     title: 'Template',
     category: 'Web Development',
     description: 'An interactive analytics dashboard for personal finance tracking with data visualization and insights. Helps users make informed financial decisions with real-time data.',
-    imageUrl: '../src/assets/logo-me.png',
+    imageUrl: templateImg,
     tags: ['React', 'TypeScript', 'Vercel']
   },
   // {
