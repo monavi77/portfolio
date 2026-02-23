@@ -19,10 +19,10 @@ export function Footer() {
           <div className="text-center">
             <h4 className="font-bold mb-4">Quick Links</h4>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#projects" className="text-white/70 hover:text-[#C63B37] transition-colors">Work</a>
-              <a href="#about" className="text-white/70 hover:text-[#C63B37] transition-colors">About</a>
-              <a href="#contact" className="text-white/70 hover:text-[#C63B37] transition-colors">Contact</a>
-              <a href="#resume" className="text-white/70 hover:text-[#C63B37] transition-colors">Resume</a>
+              <a href="/work" className="text-white/70 hover:text-[#C63B37] transition-colors">Work</a>
+              <a href="/about" className="text-white/70 hover:text-[#C63B37] transition-colors">About</a>
+              <a href="/contact" className="text-white/70 hover:text-[#C63B37] transition-colors">Contact</a>
+              <a href="/resume" className="text-white/70 hover:text-[#C63B37] transition-colors">Resume</a>
             </div>
           </div>
 

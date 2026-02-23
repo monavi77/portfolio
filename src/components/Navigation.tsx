@@ -19,8 +19,8 @@ export function Navigation({ onNavigate, currentPage, showBack = false, onBack }
     const rect = element.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width;
     const y = (event.clientY - rect.top) / rect.height;
-    const rotateX = (y - 0.5) * 4;
-    const rotateY = (0.5 - x) * 4;
+    const rotateX = (y - 0.1) * 1;
+    const rotateY = (0.1 - x) * 1;
     element.style.setProperty('--glass-rotate-x', `${rotateX}deg`);
     element.style.setProperty('--glass-rotate-y', `${rotateY}deg`);
     element.style.setProperty('--glass-light-x', `${x * 100}%`);

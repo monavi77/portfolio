@@ -94,7 +94,7 @@ export function ContactPage({ onBack }: ContactPageProps) {
             </div>
 
             <div className="bg-gradient-to-br from-[#C63B37] to-[#a32e2b] rounded-2xl p-8 text-white">
-              <h3 className="text-xl font-bold mb-3">Response Time</h3>
+              <p className="text-xl font-bold mb-3 ">Response Time</p>
               <p className="text-white/80 mb-4">
                 I typically respond within 24-48 hours. If your request is time-sensitive, please mention it in your message.
               </p>
@@ -105,7 +105,7 @@ export function ContactPage({ onBack }: ContactPageProps) {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+          {/* <div className="bg-white rounded-2xl p-8 shadow-sm">
             <h2 className="text-2xl font-bold text-[#57352A] mb-6">Send a Message</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -162,7 +162,7 @@ export function ContactPage({ onBack }: ContactPageProps) {
                 <span>Send Message</span>
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
 

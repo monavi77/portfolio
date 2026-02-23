@@ -114,14 +114,20 @@ export function AboutPage({ onBack }: AboutPageProps) {
                 Hi, I'm Viktoriia Monakova
               </h1>
               
-              <p className="text-xl text-[#57352A]/70 mb-6 leading-relaxed">
-                Creative and detail-oriented digital designer with a background in hospitality, passionate about
-                crafting user-centered visuals, branding materials, and engaging digital content.
+              <p className="text-lg text-[#57352A]/70 mb-3 leading-relaxed">
+              Hi, I’m a designer and developer based in Vancouver. I focus on creating clear, practical, and user-friendly digital designs. I enjoy working where design and development meet, turning ideas into simple, functional, and visually clean experiences. I’m inspired by complex but easy-to-use interfaces and designs that feel natural for people.
               </p>
               
-              <p className="text-lg text-[#57352A]/70 mb-8 leading-relaxed">
-                I enjoy blending design and development to build clear, helpful experiences and bring ideas to life
-                across web, mobile, and brand touchpoints.
+              <p className="text-lg text-[#57352A]/70 mb-1 leading-relaxed">
+              I originally come from Ukraine, and my background influences how I think about design. I like combining creativity, cultural perspective, and problem-solving when I work on projects.
+              </p>
+
+              <p className="text-lg text-[#57352A]/70 mb-1 leading-relaxed">
+              Outside of design and development, I enjoy trap shooting and sewing clothing. These hobbies help me stay focused, patient, and detail-oriented while keeping my creativity active.
+              </p>
+
+              <p className="text-lg text-[#57352A]/70 mb-6 leading-relaxed">
+              I like exploring ideas through critical and creative thinking, aiming to build digital experiences that are simple, clear, and easy to use.
               </p>
 
               {/* CTA Buttons */}
@@ -214,7 +220,7 @@ export function AboutPage({ onBack }: AboutPageProps) {
           </div>
         </section>
 
-        {/* Project Experience */}
+        {/* Project Experience
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-12">
             <Briefcase className="text-[#C63B37]" size={32} />
@@ -255,7 +261,7 @@ export function AboutPage({ onBack }: AboutPageProps) {
         </section>
 
         {/* Work Experience */}
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <div className="flex items-center gap-3 mb-12">
             <Briefcase className="text-[#C63B37]" size={32} />
             <h2 className="text-3xl md:text-4xl font-bold text-[#57352A]">Work Experience</h2>
@@ -292,10 +298,10 @@ export function AboutPage({ onBack }: AboutPageProps) {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Education */}
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <div className="flex items-center gap-3 mb-12">
             <GraduationCap className="text-[#C63B37]" size={32} />
             <h2 className="text-3xl md:text-4xl font-bold text-[#57352A]">Education & Certifications</h2>
@@ -320,10 +326,10 @@ export function AboutPage({ onBack }: AboutPageProps) {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Beyond Design */}
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <div className="flex items-center gap-3 mb-12">
             <Heart className="text-[#C63B37]" size={32} />
             <h2 className="text-3xl md:text-4xl font-bold text-[#57352A]">Community & Volunteering</h2>
@@ -346,8 +352,8 @@ export function AboutPage({ onBack }: AboutPageProps) {
                 <span>Acted as a translator and guide to ensure a smooth experience for athletes.</span>
               </li>
             </ul>
-          </div>
-        </section>
+          </div> 
+        </section> */}
 
         {/* Contact CTA */}
         <section className="text-center">

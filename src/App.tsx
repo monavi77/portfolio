@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { LandingPage } from './components/LandingPage';
 import { WorkPage } from './components/WorkPage';
@@ -10,81 +11,87 @@ import { AboutPage } from './components/AboutPage';
 import { ContactPage } from './components/ContactPage';
 import { ResumePage } from './components/ResumePage';
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'work' | 'magazine' | 'about' | 'project' | 'casestudy' | 'casestudy-template' | 'contact' | 'resume'>('home');
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const prevPageRef = useRef<typeof currentPage | null>(null);
+function ProjectRoute() {
+  const { id } = useParams();
+
+  if (!id) return <Navigate to="/work" replace />;
+  if (id === '2') return <Navigate to="/project/magazine" replace />;
+  if (id === '4') return <CaseStudyPage />;
+  if (id === 'scaffold' || id === '1' || id === '3') {
+    return <CaseStudyTemplatePage projectId={id} />;
+  }
+  return <ProjectPage />;
+}
+
+function AppLayout() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const prevScrollRef = useRef<number>(0);
 
-  const rememberCurrent = () => {
-    prevPageRef.current = currentPage;
-    prevScrollRef.current = window.scrollY;
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [location.pathname]);
 
   const handleBack = () => {
-    if (!prevPageRef.current) {
-      setCurrentPage('home');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const target = prevPageRef.current;
-    const scroll = prevScrollRef.current;
-    setCurrentPage(target);
+    navigate(-1);
     window.setTimeout(() => {
-      window.scrollTo({ top: scroll, behavior: 'auto' });
+      window.scrollTo({ top: prevScrollRef.current, behavior: 'auto' });
     }, 0);
   };
 
-  const handleProjectClick = (projectId: string) => {
-    rememberCurrent();
-    setSelectedProjectId(projectId);
-    // Route to specific case study templates/pages by project id
-    if (projectId === '4') {
-      setCurrentPage('casestudy');
-    } else if (projectId === '2') {
-      setCurrentPage('magazine');
-    } else if (projectId === 'scaffold' || projectId === '1' || projectId === '3') {
-      setCurrentPage('casestudy-template');
-    } else {
-      setCurrentPage('project');
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavigate = (page: 'home' | 'work' | 'about' | 'contact' | 'resume') => {
+    prevScrollRef.current = window.scrollY;
+    const map: Record<typeof page, string> = {
+      home: '/',
+      work: '/work',
+      about: '/about',
+      contact: '/contact',
+      resume: '/resume'
+    };
+    navigate(map[page]);
   };
 
-  const handleNavigate = (page: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'casestudy' | 'casestudy-template' | 'contact' | 'resume') => {
-    rememberCurrent();
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleProjectClick = (projectId: string) => {
+    prevScrollRef.current = window.scrollY;
+    navigate(`/projects/${projectId}`);
   };
 
   return (
     <div className="min-h-screen">
       <Navigation
         onNavigate={handleNavigate}
-        currentPage={currentPage}
-        showBack={currentPage === 'project' || currentPage === 'casestudy' || currentPage === 'casestudy-template' || currentPage === 'magazine'}
+        currentPage={
+          location.pathname.startsWith('/work')
+            ? 'work'
+            : location.pathname.startsWith('/about')
+              ? 'about'
+              : location.pathname.startsWith('/contact')
+                ? 'contact'
+                : location.pathname.startsWith('/resume')
+                  ? 'resume'
+                  : 'home'
+        }
+        showBack={location.pathname.startsWith('/projects') || location.pathname.startsWith('/project')}
         onBack={handleBack}
       />
-      
-      {currentPage === 'home' ? (
-        <LandingPage onProjectClick={handleProjectClick} onContactNavigate={() => handleNavigate('contact')} />
-      ) : currentPage === 'work' ? (
-        <WorkPage onProjectClick={handleProjectClick} />
-      ) : currentPage === 'magazine' ? (
-        <MagazinePage onBack={() => handleNavigate('home')} />
-      ) : currentPage === 'about' ? (
-        <AboutPage onBack={() => handleNavigate('home')} />
-      ) : currentPage === 'casestudy-template' ? (
-        <CaseStudyTemplatePage projectId={selectedProjectId} />
-      ) : currentPage === 'contact' ? (
-        <ContactPage onBack={() => handleNavigate('home')} />
-      ) : currentPage === 'resume' ? (
-        <ResumePage onBack={() => handleNavigate('home')} />
-      ) : currentPage === 'casestudy' ? (
-        <CaseStudyPage />
-      ) : (
-        <ProjectPage />
-      )}
+      <Routes>
+        <Route path="/" element={<LandingPage onProjectClick={handleProjectClick} onContactNavigate={() => handleNavigate('contact')} />} />
+        <Route path="/work" element={<WorkPage onProjectClick={handleProjectClick} />} />
+        <Route path="/about" element={<AboutPage onBack={() => handleNavigate('home')} />} />
+        <Route path="/contact" element={<ContactPage onBack={() => handleNavigate('home')} />} />
+        <Route path="/resume" element={<ResumePage onBack={() => handleNavigate('home')} />} />
+        <Route path="/projects/:id" element={<ProjectRoute />} />
+        <Route path="/project/magazine" element={<MagazinePage onBack={() => navigate(-1)} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout />
+    </BrowserRouter>
   );
 }
