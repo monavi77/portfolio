@@ -1,11 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Footer } from './Footer';
 
 interface MagazinePageProps {
   onBack: () => void;
 }
 
-const pageModules = import.meta.glob('../assets/magazine/travel-magazine_Page_*.png', {
+// I load images with import.meta.glob, then sort by page number so the order is correct.
+
+const pageModules = (import.meta as any).glob('../assets/magazine/travel-magazine_Page_*.png', {
   eager: true,
   import: 'default'
 }) as Record<string, string>;
@@ -22,7 +24,7 @@ const allPages = Object.entries(pageModules)
 export function MagazinePage({ onBack }: MagazinePageProps) {
   const [pageIndex, setPageIndex] = useState(1);
   const [isReady, setIsReady] = useState(false);
-  const bookRef = useRef<HTMLDivElement | null>(null);
+  const bookRef = useRef(null);
   const turnLoadedRef = useRef(false);
 
   const totalPages = allPages.length;
@@ -101,6 +103,10 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
       setIsReady(true);
       turnLoadedRef.current = true;
     };
+
+// jQuery is used to flip the pages. 
+// As well asTurn.js is used to flip the pages.
+// I load the scripts dynamically so the page loads faster. 
 
     loadScript('/jquery.min.js')
       .then(() => loadScript('/turn.js'))

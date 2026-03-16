@@ -1,6 +1,5 @@
+import React, { useRef, useState } from 'react';
 import { ArrowLeft, Menu, X } from 'lucide-react';
-import { useRef, useState } from 'react';
-import logo from '../assets/logo.svg';
 
 interface NavigationProps {
   onNavigate: (page: 'home' | 'work' | 'magazine' | 'about' | 'project' | 'contact' | 'resume') => void;
@@ -11,9 +10,9 @@ interface NavigationProps {
 
 export function Navigation({ onNavigate, currentPage, showBack = false, onBack }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navRef = useRef<HTMLDivElement | null>(null);
+  const navRef = useRef(null);
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerMove = (event: PointerEvent) => {
     const element = navRef.current;
     if (!element) return;
     const rect = element.getBoundingClientRect();
@@ -64,7 +63,11 @@ export function Navigation({ onNavigate, currentPage, showBack = false, onBack }
             onClick={() => onNavigate('home')}
             className="flex items-center gap-3 text-xl font-bold text-[#C63B37] hover:opacity-80 transition-opacity"
           >
-            <img src={logo} alt="Viktoriia Monakova logo" className="h-14 w-14" />
+            <img
+              src={new URL('../assets/logo.svg', import.meta.url).href}
+              alt="Viktoriia Monakova logo"
+              className="h-14 w-14"
+            />
             <span>Viktoriia Monakova</span>
           </button>
 
