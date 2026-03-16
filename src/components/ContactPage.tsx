@@ -69,7 +69,7 @@ export function ContactPage({ onBack }: ContactPageProps) {
                   </div>
                 </div>
               </div>
-
+             
               <div className="mt-8 pt-8 border-t border-[#57352A]/10">
                 <h3 className="text-sm font-bold text-[#57352A] mb-4 uppercase tracking-wider">Find Me Online</h3>
                 <div className="flex gap-3">
@@ -93,7 +93,10 @@ export function ContactPage({ onBack }: ContactPageProps) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#C63B37] to-[#a32e2b] rounded-2xl p-8 text-white">
+            
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#C63B37] to-[#a32e2b] rounded-2xl p-8 text-white">
               <p className="text-xl font-bold mb-3 ">Response Time</p>
               <p className="text-white/80 mb-4">
                 I typically respond within 24-48 hours. If your request is time-sensitive, please mention it in your message.
@@ -101,7 +104,6 @@ export function ContactPage({ onBack }: ContactPageProps) {
               <p className="text-sm text-white/60">
                 Current availability: Open to new opportunities
               </p>
-            </div>
           </div>
 
           {/* Contact Form */}

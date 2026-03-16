@@ -15,7 +15,7 @@ function ProjectRoute() {
   const { id } = useParams();
 
   if (!id) return <Navigate to="/work" replace />;
-  if (id === '2') return <Navigate to="/project/magazine" replace />;
+  if (id === '2') return <Navigate to="/work/magazine" replace />;
   if (id === '4') return <CaseStudyPage />;
   if (id === 'scaffold' || id === '1' || id === '3') {
     return <CaseStudyTemplatePage projectId={id} />;
@@ -53,7 +53,7 @@ function AppLayout() {
 
   const handleProjectClick = (projectId: string) => {
     prevScrollRef.current = window.scrollY;
-    navigate(`/projects/${projectId}`);
+    navigate(`/work/${projectId}`);
   };
 
   return (
@@ -71,7 +71,7 @@ function AppLayout() {
                   ? 'resume'
                   : 'home'
         }
-        showBack={location.pathname.startsWith('/projects') || location.pathname.startsWith('/project')}
+        showBack={location.pathname.startsWith('/work/') && location.pathname !== '/work'}
         onBack={handleBack}
       />
       <Routes>
@@ -80,8 +80,8 @@ function AppLayout() {
         <Route path="/about" element={<AboutPage onBack={() => handleNavigate('home')} />} />
         <Route path="/contact" element={<ContactPage onBack={() => handleNavigate('home')} />} />
         <Route path="/resume" element={<ResumePage onBack={() => handleNavigate('home')} />} />
-        <Route path="/projects/:id" element={<ProjectRoute />} />
-        <Route path="/project/magazine" element={<MagazinePage onBack={() => navigate(-1)} />} />
+        <Route path="/work/:id" element={<ProjectRoute />} />
+        <Route path="/work/magazine" element={<MagazinePage onBack={() => navigate(-1)} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
