@@ -1,3 +1,4 @@
+import React from 'react';
 import { ArrowDown } from 'lucide-react';
 import posterLight from '../assets/buil-poster-lightning.png';
 import posterDark from '../assets/buil-poster-not-lightning.png';

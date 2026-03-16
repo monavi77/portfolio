@@ -1,3 +1,4 @@
+import React from 'react';
 import { Mail, Linkedin, Github, Download, Award, Briefcase, GraduationCap, Heart, Code, Palette, Users } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Footer } from './Footer';

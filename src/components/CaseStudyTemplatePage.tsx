@@ -1,3 +1,4 @@
+import React from 'react';
 import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
 import { Footer } from './Footer';
 import { projects } from '../data/projects';

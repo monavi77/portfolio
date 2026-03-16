@@ -1,3 +1,4 @@
+import React from 'react';
 import { Mail, Linkedin, Github, Phone, Send } from 'lucide-react';
 import { Footer } from './Footer';
 import { useState } from 'react';

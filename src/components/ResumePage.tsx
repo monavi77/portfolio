@@ -1,3 +1,4 @@
+import React from 'react';
 import { Download, Mail, Phone, Linkedin, Github, Award, Briefcase, GraduationCap, Star, Users } from 'lucide-react';
 import { Footer } from './Footer';
 

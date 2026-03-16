@@ -1,3 +1,4 @@
+import React from 'react';
 import { ExternalLink, Github, Calendar, Users, Monitor, Target, CheckCircle, TrendingUp, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Footer } from './Footer';
