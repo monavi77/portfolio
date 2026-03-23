@@ -1,3 +1,5 @@
+// this is turn.js for MagazinePage.tsx
+
 /**
  * turn.js 4th release
  * turnjs.com
