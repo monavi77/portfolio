@@ -1,3 +1,19 @@
+// src/components/MagazinePage.tsx
+// This page is a magazine page that I created for my portfolio.
+// It is a single page application that uses React Router to navigate between pages.
+// It is a responsive page that uses Tailwind CSS to style the page.
+// It is a page that uses the turn.js library to flip the pages.
+// It is a page that uses the jQuery library to flip the pages.
+// It is a page that uses the import.meta.glob to load the images.
+// It is a page that uses the useEffect to load the scripts.
+// It is a page that uses the useMemo to calculate the progress text.
+// It is a page that uses the useRef to store the book reference.
+// It is a page that uses the useState to store the page index.
+// It is a page that uses the useState to store the is ready state.
+// It is a page that uses the useRef to store the turn loaded reference.
+// It is a page that uses the useRef to store the book reference.
+// It is a page that uses the useRef to store the turn loaded reference.
+
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Footer } from './Footer';
 
