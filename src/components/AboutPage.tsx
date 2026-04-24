@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, Linkedin, Github, Download, Award, Briefcase, GraduationCap, Heart, Code, Palette, Users } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Footer } from './Footer';
+import portraitImg from '../assets/me.jpeg';
 
 interface AboutPageProps {
   onBack: () => void;
@@ -154,7 +155,7 @@ export function AboutPage({ onBack }: AboutPageProps) {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
-                  src="/src/assets/me.jpeg"
+                  src={portraitImg}
                   alt="Viktoriia Monakova portrait"
                   className="w-full h-full object-cover"
                 />
