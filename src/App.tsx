@@ -15,9 +15,9 @@ function ProjectRoute() {
   const { id } = useParams();
 
   if (!id) return <Navigate to="/work" replace />;
-  if (id === '2') return <Navigate to="/work/magazine" replace />;
-  if (id === '4') return <CaseStudyPage />;
-  if (id === 'scaffold' || id === '1' || id === '3') {
+  if (id === 'magazine') return <Navigate to="/work/travel-magazine" replace />;
+  if (id === 'travel-magazine') return <MagazinePage onBack={() => window.history.back()} />;
+  if (id === 'scaffold' || id === 'dtrmnd' || id === 'trapshool') {
     return <CaseStudyTemplatePage projectId={id} />;
   }
   return <ProjectPage />;
@@ -81,7 +81,7 @@ function AppLayout() {
         <Route path="/contact" element={<ContactPage onBack={() => handleNavigate('home')} />} />
         <Route path="/resume" element={<ResumePage onBack={() => handleNavigate('home')} />} />
         <Route path="/work/:id" element={<ProjectRoute />} />
-        <Route path="/work/magazine" element={<MagazinePage onBack={() => navigate(-1)} />} />
+        <Route path="/work/magazine" element={<Navigate to="/work/travel-magazine" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>

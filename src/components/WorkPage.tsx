@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProjectCard } from './ProjectCard';
-import { projects } from '../data/projects';
+import { visibleProjects } from '../data/projects';
 import { Footer } from './Footer';
 
 interface WorkPageProps {
@@ -27,7 +27,7 @@ export function WorkPage({ onProjectClick }: WorkPageProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {visibleProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 title={project.title}

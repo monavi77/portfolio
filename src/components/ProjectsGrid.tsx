@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { projects } from '../data/projects';
+import { visibleProjects } from '../data/projects';
 
 interface ProjectsGridProps {
   onProjectClick: (projectId: string) => void;
@@ -21,7 +21,7 @@ export function ProjectsGrid({ onProjectClick }: ProjectsGridProps) {
         </div>
 
         <div className="space-y-32">
-          {projects.map((project, index) => {
+          {visibleProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
             return (
