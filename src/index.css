@@ -2669,6 +2669,12 @@ body {
   align-items: center;
 }
 
+.magazine-turn__frame {
+  display: flex;
+  overflow: hidden;
+  transition: width 220ms ease;
+}
+
 .magazine-turn__book {
   position: relative;
   margin: 0 auto !important;

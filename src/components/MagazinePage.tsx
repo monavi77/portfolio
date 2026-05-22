@@ -25,10 +25,13 @@ const allPages = Object.entries(pageModules)
 export function MagazinePage({ onBack }: MagazinePageProps) {
   const navigate = useNavigate();
   const [pageIndex, setPageIndex] = useState(1);
+  const [framePage, setFramePage] = useState(1);
   const [isReady, setIsReady] = useState(false);
   const [activeSection, setActiveSection] = useState('overview');
   const bookRef = useRef(null);
+  const frameRef = useRef<HTMLDivElement | null>(null);
   const turnLoadedRef = useRef(false);
+  const layoutModeRef = useRef<'single' | 'double'>('single');
 
   const magazineProject = projects.find((item) => item.id === 'travel-magazine') || projects[0];
   const nextProject = useMemo(() => {
@@ -61,6 +64,52 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
     return `Page ${left}-${right} of ${totalPages}`;
   }, [pageIndex, totalPages, isCover, isBackCover]);
 
+  const getLayout = (page: number) => {
+    const isMobile = window.innerWidth < 768;
+    const pageWidth = Math.min(420, Math.max(240, Math.floor(window.innerWidth * (isMobile ? 0.72 : 0.32))));
+    const pageHeight = Math.round(pageWidth / 0.715);
+    const display: 'single' | 'double' = isMobile ? 'single' : 'double';
+
+    return {
+      display,
+      pageWidth,
+      width: display === 'single' ? pageWidth : pageWidth * 2,
+      height: pageHeight,
+    };
+  };
+
+  const applyFrameLayout = (page: number) => {
+    if (!frameRef.current) return;
+
+    const layout = getLayout(page);
+    const isMobile = layout.display === 'single';
+    const isFirst = page === 1;
+    const isLast = page === totalPages;
+
+    frameRef.current.style.height = `${layout.height}px`;
+
+    if (isMobile) {
+      frameRef.current.style.width = `${layout.pageWidth}px`;
+      frameRef.current.style.justifyContent = 'center';
+      return;
+    }
+
+    if (isFirst) {
+      frameRef.current.style.width = `${layout.pageWidth}px`;
+      frameRef.current.style.justifyContent = 'flex-end';
+      return;
+    }
+
+    if (isLast) {
+      frameRef.current.style.width = `${layout.pageWidth}px`;
+      frameRef.current.style.justifyContent = 'flex-start';
+      return;
+    }
+
+    frameRef.current.style.width = `${layout.width}px`;
+    frameRef.current.style.justifyContent = 'center';
+  };
+
   useEffect(() => {
     if (!bookRef.current || turnLoadedRef.current) return;
 
@@ -88,34 +137,49 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
       }
       if (!$.fn?.turn) return;
 
-      const isMobile = window.innerWidth < 768;
-      const pageWidth = Math.min(420, Math.max(240, Math.floor(window.innerWidth * (isMobile ? 0.72 : 0.32))));
-      const pageHeight = Math.round(pageWidth / 0.715);
+      const applyLayout = (page: number) => {
+        const layout = getLayout(page);
+        const hasTurn = !!$(bookRef.current).data('turn');
+
+        if (hasTurn && layoutModeRef.current !== layout.display) {
+          $(bookRef.current).turn('display', layout.display);
+          layoutModeRef.current = layout.display;
+        } else if (!hasTurn) {
+          layoutModeRef.current = layout.display;
+        }
+
+        if (hasTurn) {
+          $(bookRef.current).turn('size', layout.width, layout.height);
+        }
+
+        applyFrameLayout(page);
+
+        return layout;
+      };
 
       if (bookRef.current.children.length === 0) return;
 
+      const initialLayout = getLayout(1);
+      layoutModeRef.current = initialLayout.display;
+
       $(bookRef.current).turn({
-        width: isMobile ? pageWidth : pageWidth * 2,
-        height: pageHeight,
+        width: initialLayout.width,
+        height: initialLayout.height,
         autoCenter: true,
-        display: 'single',
+        display: initialLayout.display,
         duration: 900,
         gradients: true,
         elevation: 50,
         page: 1,
         when: {
           turning: (_e: Event, page: number) => {
-            const isMobileNow = window.innerWidth < 768;
-            const isSingle = isMobileNow || page === 1 || page === totalPages;
-            $(bookRef.current).turn('display', isSingle ? 'single' : 'double');
-            $(bookRef.current).turn('size', isSingle ? pageWidth : pageWidth * 2, pageHeight);
+            setFramePage(page);
+            applyFrameLayout(page);
           },
           turned: (_e: Event, page: number) => {
             setPageIndex(page);
-            const isMobileNow = window.innerWidth < 768;
-            const isSingle = isMobileNow || page === 1 || page === totalPages;
-            $(bookRef.current).turn('display', isSingle ? 'single' : 'double');
-            $(bookRef.current).turn('size', isSingle ? pageWidth : pageWidth * 2, pageHeight);
+            setFramePage(page);
+            applyLayout(page);
           },
         },
       });
@@ -132,13 +196,16 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
     const handleResize = () => {
       const $ = (window as any).jQuery;
       if (!$ || !bookRef.current) return;
-      const isMobile = window.innerWidth < 768;
-      const pageWidth = Math.min(420, Math.max(240, Math.floor(window.innerWidth * (isMobile ? 0.72 : 0.32))));
-      const pageHeight = Math.round(pageWidth / 0.715);
       const currentPage = $(bookRef.current).turn('page');
-      const isSingle = isMobile || currentPage === 1 || currentPage === totalPages;
-      $(bookRef.current).turn('display', isSingle ? 'single' : 'double');
-      $(bookRef.current).turn('size', isSingle ? pageWidth : pageWidth * 2, pageHeight);
+      const layout = getLayout(currentPage);
+
+      if (layoutModeRef.current !== layout.display) {
+        $(bookRef.current).turn('display', layout.display);
+        layoutModeRef.current = layout.display;
+      }
+
+      $(bookRef.current).turn('size', layout.width, layout.height);
+      applyFrameLayout(framePage || currentPage);
     };
 
     window.addEventListener('resize', handleResize);
@@ -149,7 +216,7 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
         $(bookRef.current).turn('destroy');
       }
     };
-  }, [totalPages]);
+  }, [framePage, totalPages]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -239,17 +306,23 @@ export function MagazinePage({ onBack }: MagazinePageProps) {
 
                 <div className="magazine-interactive">
                   <div className="magazine-turn">
-                    <div className="magazine-turn__book" ref={bookRef}>
-                      {allPages.map((src, index) => {
-                        const isHard = index === 0 || index === totalPages - 1;
-                        return (
-                          <div
-                            key={src}
-                            className={`magazine-turn__page ${isHard ? 'hard' : ''}`}
-                            style={{ backgroundImage: `url(${src})` }}
-                          />
-                        );
-                      })}
+                    <div
+                      ref={frameRef}
+                      className="magazine-turn__frame"
+                      style={{ justifyContent: framePage === 1 ? 'flex-end' : framePage === totalPages ? 'flex-start' : 'center' }}
+                    >
+                      <div className="magazine-turn__book" ref={bookRef}>
+                        {allPages.map((src, index) => {
+                          const isHard = index === 0 || index === totalPages - 1;
+                          return (
+                            <div
+                              key={src}
+                              className={`magazine-turn__page ${isHard ? 'hard' : ''}`}
+                              style={{ backgroundImage: `url(${src})` }}
+                            />
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>
